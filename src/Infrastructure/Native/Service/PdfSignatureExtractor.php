@@ -16,8 +16,9 @@ final class PdfSignatureExtractor implements PdfSignatureExtractorInterface
     {
         $signatures = [];
         $matches = [];
-        preg_match_all('/\/ByteRange\s*\[\s*(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s*\]/', $pdfContent, $matches, PREG_OFFSET_CAPTURE);
-
+        //Timestamp => /Filter/Adobe.PPKLite/Type/Sig/SubFilter/ETSI.RFC3161/ByteRange 
+        //Assinatura => /Filter/Adobe.PPKLite/Type/Sig/SubFilter/adbe.pkcs7.detached/ByteRange
+        preg_match_all('/adbe\.pkcs7\.detached\/ByteRange\s*\[\s*(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s*\]/', $pdfContent, $matches, PREG_OFFSET_CAPTURE);
         $byteRangeMatches = $matches[0] ?? [];
         foreach ($byteRangeMatches as $index => $fullMatch) {
             $offset = $fullMatch[1];
