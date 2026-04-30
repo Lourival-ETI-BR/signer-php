@@ -1,6 +1,6 @@
 {
-    "name": "jeidison/signer-php",
-    "description": "Open-source PHP library for PDF digital signing with multiple signatures, RFC3161 timestamping, PAdES profiles, and PDF protection",
+    "name": "lourival-eti-br/signer-php",
+    "description": "Open-source PHP library for PDF digital signing with multiple signatures, RFC3161 timestamping, PAdES profiles, and PDF protection (fork from https://github.com/jeidison/signer-php)",
     "type": "library",
     "keywords": [
         "php",
