@@ -18,5 +18,9 @@ final readonly class SignatureValidationEntryDto
         public ?bool $policyValid,
         public bool $valid,
         public ?string $reason = null,
+
+        public ?string $certPEM = null,
+        public ?string $chainPEM = null,
+        public ?string $certDER = null,
     ) {}
 }

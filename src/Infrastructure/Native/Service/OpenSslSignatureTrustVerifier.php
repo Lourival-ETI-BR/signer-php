@@ -81,7 +81,7 @@ final readonly class OpenSslSignatureTrustVerifier implements SignatureTrustVeri
                 return new SignatureTrustVerification(false, $message);
             }
 
-            return new SignatureTrustVerification(true);
+            return new SignatureTrustVerification(true, 'OK!', $leafPem, $chainPem, $certificatesDer[0]);
         } finally {
             @unlink($leafFile);
             if ($chainFile !== null) {

@@ -57,6 +57,9 @@ final readonly class NativePdfSignatureValidationEngine implements PdfSignatureV
                 if ($signature->byteRangeValid && $cryptoValid && $trustValid === false) {
                     $reason = $trust?->message;
                 }
+                $trustCertPEM = $trust?->certPEM;
+                $trustCertDER = $trust?->certDER;
+                $trustChainPEM = $trust?->chainPEM;
 
                 if ($request->options->policy === 'br-iti' && $signature->byteRangeValid && $cryptoValid && $trustValid !== true) {
                     $trustValid = false;
@@ -79,7 +82,10 @@ final readonly class NativePdfSignatureValidationEngine implements PdfSignatureV
                     trustValid: $trustValid,
                     policyValid: $policyValid,
                     valid: $valid,
-                    reason: $reason
+                    reason: $reason,
+                    certPEM: $trustCertPEM,
+                    chainPEM: $trustChainPEM,
+                    certDER: $trustCertDER,
                 );
             }
 
