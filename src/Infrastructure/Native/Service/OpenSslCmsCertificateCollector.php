@@ -21,8 +21,8 @@ final class OpenSslCmsCertificateCollector implements SignatureCertificateCollec
         }
 
         // Signature slots are padded with zeros; remove trailing null bytes represented as 00.
-        $hex = preg_replace('/(?:00)+$/', '', $hex) ?? $hex;
-        if ($hex === '' || (strlen($hex) % 2) !== 0 || ! ctype_xdigit($hex)) {
+        $hex2 = preg_replace('/(?:00)+$/', '', $hex) ?? $hex;
+        if ($hex2 === '' || (strlen($hex2) % 2) !== 0 || ! ctype_xdigit($hex2)) {
             return [];
         }
 
